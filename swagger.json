@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "https://project2-p96n.onrender.com",
+  "host": "project2-p96n.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
