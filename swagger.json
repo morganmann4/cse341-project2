@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "project2-p96n.onrender.com",
+  "host": "cse341-project2-f4nm.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
