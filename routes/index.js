@@ -6,6 +6,9 @@ router.use('/', require('./swagger'))
 
 router.use('/friends', require('./friends'));
 
+router.use('/cars', require('./cars'));
+
+
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 
 router.get('/logout', function(req, res, next) {
