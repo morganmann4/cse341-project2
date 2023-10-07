@@ -1,7 +1,11 @@
 const router = require('express').Router();
 const validation = require('../middleware/validate')
+const router = require('express').Router();
+const validation = require('../middleware/validate')
 
 const friendsController = require('../controllers/friends');
+
+const { isAuthenticated } = require('../middleware/authenticate')
 
 const { isAuthenticated } = require('../middleware/authenticate')
 

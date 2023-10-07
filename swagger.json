@@ -32,6 +32,27 @@
       }
     },
     "/api-docs": {
+    "/login": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api-docs": {
       "get": {
         "description": "",
         "responses": {
@@ -121,9 +142,6 @@
         }
       },
       "put": {
-        "tags": [
-          "Friends"
-        ],
         "description": "",
         "parameters": [
           {
@@ -179,9 +197,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "Friends"
-        ],
         "description": "",
         "parameters": [
           {

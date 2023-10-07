@@ -1,4 +1,5 @@
 const mongodb = require('../db/connect');
+const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllFriends = (req, res) => {
