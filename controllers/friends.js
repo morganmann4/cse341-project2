@@ -1,61 +1,60 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
-// const getAll = (req, res) => {
-//     //#swagger.tags=['Friends']
-//     mongodb
-//       .getDb()
-//       .db()
-//       .collection('friends')
-//       .find()
-//       .toArray((err, lists) => {
-//         if (err){
-//           res.status(400).json( { messages: err });
-//         }
-//         res.setHeader('Content-Type', 'application/json');
-//         res.status(200).json(lists);
-//     });
-// };
-
-// const getSingle = async (req, res) => {
-//     //#swagger.tags=['Friends']
-//     if(!ObjectId.isValid(req.params.id)){
-//         res.status(400).json('Must use a valid friend id to find a freind')
-//       }
-//       const friendId = new ObjectId(req.params.id);
-//         mongodb
-//         .getDb()
-//         .db()
-//         .collection('friends')
-//         .find({ _id: friendId })
-//         .toArray((err, result) => {
-//           if (err){
-//             res.status(400).json( { messages: err });
-//           }
-//           res.setHeader('Content-Type', 'application/json');
-//           res.status(200).json(result[0]);
-//         });
-// };
-
-const getAllFriends = async (req, res) => {
-    // const friendId = new ObjectId(req.params.id)
-    console.log("CALLED")
-    const result = await mongodb.getDb().db().collection('friends').find();
-    result.toArray().then((friends) => {
+const getAllFriends = (req, res) => {
+    //#swagger.tags=['Friends']
+    mongodb
+      .getDb()
+      .db()
+      .collection('friends')
+      .find()
+      .toArray((err, lists) => {
+        if (err){
+          res.status(400).json( { messages: err });
+        }
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(friends);
+        res.status(200).json(lists);
     });
 };
 
 const getSingleFriends = async (req, res) => {
     //#swagger.tags=['Friends']
-    const friendId = new ObjectId(req.params.id)
-    const result = await mongodb.getDb().db().collection('friends').find({_id: friendId});
-    result.toArray().then((friends) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(friends[0]);
-    });
+    if(!ObjectId.isValid(req.params.id)){
+        res.status(400).json('Must use a valid friend id to find a freind')
+      }
+      const friendId = new ObjectId(req.params.id);
+        mongodb
+        .getDb()
+        .db()
+        .collection('friends')
+        .find({ _id: friendId })
+        .toArray((err, result) => {
+          if (err){
+            res.status(400).json( { messages: err });
+          }
+          res.setHeader('Content-Type', 'application/json');
+          res.status(200).json(result[0]);
+        });
 };
+
+// const getAllFriends = async (req, res) => {
+//     // const friendId = new ObjectId(req.params.id)
+//     const result = await mongodb.getDb().db().collection('friends').find();
+//     result.toArray().then((friends) => {
+//         res.setHeader('Content-Type', 'application/json');
+//         res.status(200).json(friends);
+//     });
+// };
+
+// const getSingleFriends = async (req, res) => {
+//     //#swagger.tags=['Friends']
+//     const friendId = new ObjectId(req.params.id)
+//     const result = await mongodb.getDb().db().collection('friends').find({_id: friendId});
+//     result.toArray().then((friends) => {
+//         res.setHeader('Content-Type', 'application/json');
+//         res.status(200).json(friends[0]);
+//     });
+// };
 
 
 const createFriend = async (req, res) => {
